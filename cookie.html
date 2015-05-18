@@ -10,12 +10,12 @@
 <template name="hello">
   <button id="bigcookie">COOKIE</button>
 
-  {{#if greaterThan counter 5}}
-    <button id="cursor">Buy a Cursor</button>
+  {{#if greaterThan counter cprice}}
+    <button id="cursor">Buy an Auto Clicker ({{cprice}})</button>
   {{/if}}
 
   {{#if greaterThan counter 20}}
-  <button id="grandma">Buy a Grandma</button>
+  <button id="grandma">Buy a Grandma (10) </button>
   {{/if}}
 
   <p>You have {{counter}} Cookies!</p>

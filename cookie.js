@@ -1,6 +1,7 @@
 if (Meteor.isClient) {
   // counter starts at 0
   Session.setDefault('counter', 0);
+  Session.set('cprice', 5);
   Session.set('grandma', 0);
   Session.set('cursor', 0);
 
@@ -13,10 +14,14 @@ if (Meteor.isClient) {
     },
     cursor: function() {
       return Session.get('cursor');
+    },
+    cprice: function() {
+      return Session.get('cprice');
     }
   });
 
-//check for greater than
+//check for "greater than"
+//for showing or hiding buyables
   Template.registerHelper('greaterThan',
     function(v1, v2) {
         return (v1 > v2);
@@ -33,8 +38,11 @@ if (Meteor.isClient) {
       // increment the number of cursors owned
       Session.set('cursor', Session.get('cursor') +1);
 
-      //pay up
-      Session.set('counter', Session.get('counter') - 5);
+      //pay up for cursor
+      Session.set('counter', Session.get('counter') - Session.get('cprice'));
+
+      //increase cost of cursor
+      Session.set('cprice', Session.get('cprice') + Session.get('cursor'));
     },
 
     'click #grandma': function(){
