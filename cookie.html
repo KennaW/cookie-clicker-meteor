@@ -1,0 +1,33 @@
+<head>
+  <title>cookie</title>
+</head>
+
+<body>
+  <h1>Click the Cookie!!</h1>
+  {{> hello}}
+</body>
+
+<template name="hello">
+  <button id="bigcookie">COOKIE</button>
+
+  {{#if greaterThan counter 5}}
+    <button id="cursor">Buy a Cursor</button>
+  {{/if}}
+
+  {{#if greaterThan counter 20}}
+  <button id="grandma">Buy a Grandma</button>
+  {{/if}}
+
+  <p>You have {{counter}} Cookies!</p>
+
+
+{{#if cursor}}
+  <p>Auto Clickers: {{cursor}}</p>
+{{/if}}
+
+{{#if grandma}}
+  <p>Grandmas: {{grandma}}</p>
+{{/if}}
+
+
+</template>
